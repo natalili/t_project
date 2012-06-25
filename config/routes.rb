@@ -1,5 +1,6 @@
 TProject::Application.routes.draw do
   resources :users, :only => [:new, :create, :destroy]
+  resources :sessions, :only => [:new, :create]
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
