@@ -1,6 +1,10 @@
 class User < ActiveRecord::Base
-  attr_accessible :name
+  
+  has_many :projects, :dependent => :destroy
+  
+ # attr_accessible :name
   attr_accessor   :password
+  
   before_save :encrypt_password
   
   validates :name, :presence   => true,
@@ -18,7 +22,6 @@ class User < ActiveRecord::Base
        nil
      end
   end
-
   
   private
   

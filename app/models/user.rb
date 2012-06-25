@@ -1,6 +1,10 @@
 class User < ActiveRecord::Base
+  
+  has_many :projects, :dependent => :destroy
+  
  # attr_accessible :name
   attr_accessor   :password
+  
   before_save :encrypt_password
   
   validates :name, :presence   => true,
@@ -17,6 +21,11 @@ class User < ActiveRecord::Base
      else
        nil
      end
+  end
+  
+  def self.authenticate_with_salt(id, cookie_salt)
+    user = find_by_id(id)
+    (user && user.password_salt == cookie_salt) ? user : nil
   end
 
   
