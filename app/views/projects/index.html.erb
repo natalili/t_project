@@ -1,25 +1,51 @@
 <h1>Listing projects</h1>
-
-<table>
-  <tr>
-    <th>Name</th>
-<!--    <th>User</th> -->
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<h2>From <%= current_user.name%></h2>
 
 <% @projects.each do |project| %>
+<table>
+
   <tr>
-    <td><%= project.name %></td>
-<!--    <td><%= project.user_id %></td>
-    <td><= link_to 'Show', project ></td> -->
-    <td><%= link_to 'Edit', edit_project_path(project) %></td>
-    <td><%= link_to 'Destroy', project, confirm: 'Are you sure?', method: :delete %></td>
+    <td></td>
+    <td><%=project.name%></td>
+    <td>
+      <%= link_to 'Edit', edit_project_path(project) %> | 
+      <%= link_to 'Destroy', project, confirm: 'Are you sure?', method: :delete %>
+    </td>
   </tr>
-<% end %>
+
+  <tr>
+    <td></td>
+    <td colspan='2'>
+  <%= form_for project.tasks.build(:project_id => project.id) do |f| %>
+    <div><%= f.hidden_field :project_id%> </div>
+    <div class="field">
+      <%= f.text_area :name, :size=>"100%" %>
+<!--    </div>
+    <div class="actions">  -->
+      <%= f.submit "Add Task" %>
+    </div>
+  <% end %>
+    </td>
+  </tr>
+
+   <% project.tasks.each do |task| unless task.id==nil%>
+   <% @task = task%>
+      <tr>
+        <td><%= @task.is_done %></td>
+        <td> 
+          <% unless @task.time_end ==nil%>
+            Done: <%= @task.time_end%> | 
+          <% end %>
+          <%= @task.name %>
+        </td>
+        <td>
+          <%=  link_to 'Edit', edit_task_path(@task)%> |
+          <%= link_to 'Destroy', @task, confirm: 'Are you sure?', method: :delete %>
+        </td>
+      </tr>
+   <% end %> 
+   <% end %> 
 </table>
-
-<br />
-
-<%= link_to 'New Project', new_project_path %>
+<br/>
+<% end %>
+<%= link_to 'Add Project', new_project_path %>

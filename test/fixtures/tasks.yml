@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  project_id: 1
+  is_done: false
+  time_end: 2012-06-25 21:15:28
+  prioritise: 1
+
+two:
+  name: MyString
+  project_id: 1
+  is_done: false
+  time_end: 2012-06-25 21:15:28
+  prioritise: 1

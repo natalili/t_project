@@ -2,7 +2,7 @@ class User < ActiveRecord::Base
   
   has_many :projects, :dependent => :destroy
   
- # attr_accessible :name
+  attr_accessible :name, :password, :password_confirmation
   attr_accessor   :password
   
   before_save :encrypt_password
