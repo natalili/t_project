@@ -1,5 +1,5 @@
 TProject::Application.routes.draw do
-  resources :tasks, :onli => [:edit, :create, :update, :destroy]
+  resources :tasks, :only => [:edit, :create, :update, :destroy]
   resources :projects, :except => :show 
   resources :users, :only => [:new, :create, :destroy]
   resources :sessions, :only => [:new, :create]

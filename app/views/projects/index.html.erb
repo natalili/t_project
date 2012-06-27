@@ -2,9 +2,9 @@
 <h2>From <%= current_user.name%></h2>
 
 <% @projects.each do |project| %>
-<table>
+<table class="project_tasks" >
 
-  <tr>
+  <tr class="project_object">
     <td></td>
     <td><%=project.name%></td>
     <td>
