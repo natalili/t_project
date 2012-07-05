@@ -1,0 +1,1 @@
+$("#project_show_<%= @project.id %>").html("<%= escape_javascript(@project.name) %>")

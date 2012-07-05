@@ -24,6 +24,11 @@ class ProjectsController < ApplicationController
   # GET /projects/1/edit
   def edit
     @project = Project.find(params[:id])
+    
+    respond_to do |format|
+      format.html #edit.html.erb
+      format.js {@project}
+    end
   end
 
   # POST /projects
@@ -50,7 +55,7 @@ class ProjectsController < ApplicationController
     respond_to do |format|
       if @project.update_attributes(params[:project])
         format.html { redirect_to root_path }
-        format.json { head :no_content }
+        format.js {@project} #update.js.erb 
       else
         format.html { render action: "edit" }
         format.json { render json: @project.errors, status: :unprocessable_entity }
@@ -62,11 +67,12 @@ class ProjectsController < ApplicationController
   # DELETE /projects/1.json
   def destroy
     @project = Project.find(params[:id])
+    @project_id = params[:id]
     @project.destroy
 
     respond_to do |format|
       format.html { redirect_to projects_url }
-      format.json { head :no_content }
+      format.js { @project_id }
     end
   end
 end

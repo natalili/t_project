@@ -1,0 +1,1 @@
+$("#task_show_<%= @task.id %>").html("<%= escape_javascript(unless @task.time_end ==nil% @task.time_end end @task.name) %>")

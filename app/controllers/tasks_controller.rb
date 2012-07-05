@@ -3,6 +3,12 @@ class TasksController < ApplicationController
   # GET /tasks/1/edit
   def edit
     @task = Task.find(params[:id])
+
+    respond_to do |format|
+      format.html #edit.html.erb
+      format.js {@task}
+    end
+
   end
 
   # POST /tasks
@@ -28,7 +34,7 @@ class TasksController < ApplicationController
     respond_to do |format|
       if @task.update_attributes(params[:task])
         format.html { redirect_to root_path }
-        format.json { head :no_content }
+        format.js {@task}
       else
         format.html { render action: "edit" }
         format.json { render json: @task.errors, status: :unprocessable_entity }
@@ -40,11 +46,12 @@ class TasksController < ApplicationController
   # DELETE /tasks/1.json
   def destroy
     @task = Task.find(params[:id])
+    @task_id = params[:id]
     @task.destroy
 
     respond_to do |format|
       format.html { redirect_to root_path }
-      format.json { head :no_content }
+      format.js { @task_id }
     end
   end
 end

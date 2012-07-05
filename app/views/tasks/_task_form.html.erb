@@ -1,0 +1,4 @@
+<%= form_for(@task, :remote=>true) do |f| %>
+    <%= f.text_field :name, :size=>"85px" %>
+    <%= f.submit "Update"%>
+<% end %>  
