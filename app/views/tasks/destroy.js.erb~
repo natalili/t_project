@@ -1,1 +1,2 @@
-$("#tr_task_<%= @task_id %>").toggle()
+$('#task_form')[0].reset()
+$("#tr_task_<%= @task_id %>").toggle('slide')

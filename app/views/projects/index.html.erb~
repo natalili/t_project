@@ -1,55 +1,10 @@
 <h1>Listing projects</h1>
 <h2>From <%= current_user.name%></h2>
-
+<div id=index_project>
 <% @projects.each do |project| %>
-<table class="project_tasks" id=table_project_<%=project.id%>>
-
-  <tr class="project_object">
-    <td></td>
-    <td>
-      <div id=project_show_<%=project.id%> >
-      <%=project.name%>
-      </div>
-    </td>
-    <td>
-      <%= link_to 'Edit', edit_project_path(project), :remote => true %> | 
-      <%= link_to 'Destroy', project, confirm: 'Are you sure?', method: :delete, :remote => true %>
-    </td>
-  </tr>
-
-  <tr>
-    <td></td>
-    <td colspan='2'>
-  <%= form_for project.tasks.build(:project_id => project.id) do |f| %>
-    <div><%= f.hidden_field :project_id%> </div>
-    <div class="field">
-      <%= f.text_area :name, :size=>"100px" %>
-      <%= f.submit "Add Task" %>
-    </div>
-  <% end %>
-    </td>
-  </tr>
-
-   <% project.tasks.each do |task| unless task.id==nil%>
-   <% @task = task%>
-      <tr id=tr_task_<%=@task.id%>>
-        <td><%= @task.is_done %></td>
-        <td> 
-          <div id=task_show_<%=@task.id%>>
-            <% unless @task.time_end ==nil%>
-              Done: <%= @task.time_end%> | 
-            <% end %>
-            <%= @task.name %>
-          </div>
-        </td>
-        <td>
-          <%=  link_to 'Edit', edit_task_path(@task), :remote => true%> |
-          <%= link_to 'Destroy', @task, confirm: 'Are you sure?', method: :delete, :remote => true %>
-        </td>
-      </tr>
-   <% end %> 
-   <% end %> 
-</table>
+<% @project = project%>
+<%= render 'project_table'%>
 <br/>
 <% end %>
+</div>
 <%= link_to 'Add Project', new_project_path %>

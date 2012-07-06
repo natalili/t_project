@@ -1,0 +1,1 @@
+$("#index_project").append("<%= escape_javascript(render('project_table')) %>")

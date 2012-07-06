@@ -17,7 +17,7 @@ class ProjectsController < ApplicationController
 
     respond_to do |format|
       format.html # new.html.erb
-      format.json { render json: @project }
+      format.js { @project }
     end
   end
 
@@ -39,7 +39,7 @@ class ProjectsController < ApplicationController
     respond_to do |format|
       if @project.save
         format.html { redirect_to root_path }
-        format.json { render json: @project, status: :created, location: @project }
+        format.js { @project }
       else
         format.html { render action: "new" }
         format.json { render json: @project.errors, status: :unprocessable_entity }

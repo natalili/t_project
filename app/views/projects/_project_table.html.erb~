@@ -1,0 +1,35 @@
+<table class="project_tasks" id=table_project_<%=@project.id%>>
+
+  <tr class="project_object">
+    <td></td>
+    <td>
+      <div id=project_show_<%=@project.id%> >
+      <%=@project.name%>
+      </div>
+    </td>
+    <td>
+      <%= link_to 'Edit', edit_project_path(@project), :remote => true %> | 
+      <%= link_to 'Destroy', @project, confirm: 'Are you sure?', method: :delete, :remote => true %>
+    </td>
+  </tr>
+
+<div id=index_project_tasks>
+  <tr>
+    <td></td>
+    <td colspan='2'>
+      <div id=new_task_form_project_<%=@project.id%>>
+      <%@task = @project.tasks.build(:project_id => @project.id)%>
+      <%= render 'tasks/task_form'%>
+      </div>
+    </td>
+  </tr>
+
+   <% @project.tasks.each do |task| unless task.id==nil%>
+   <% @task = task%>
+   <div id=task_tr_<%=@task.id%>>
+     <%= render 'tasks/task_tr'%>
+   </div>
+   <% end %> 
+</div>
+   <% end %> 
+</table>

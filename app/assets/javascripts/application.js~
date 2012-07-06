@@ -13,6 +13,3 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
-$('input#task_is_done').live("click", function() {
-    $(this).parent('form').submit();
-});

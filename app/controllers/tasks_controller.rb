@@ -18,7 +18,7 @@ class TasksController < ApplicationController
     respond_to do |format|
       if @task.save
         format.html { redirect_to root_path }
-        format.json { render json: @task, status: :created, location: @task }
+        format.js { @task }
       else
         format.html { redirect_to root_path }
         format.json { render json: @task.errors, status: :unprocessable_entity }

@@ -1,4 +1,6 @@
+<div id=project_form>
 <%= form_for(@project, :remote=>true) do |f| %>
     <%= f.text_field :name, :size=>"85px" %>
-    <%= f.submit "Update"%>
+    <%= f.submit f.object.new_record? ? 'Create' : 'Update'%>
 <% end %>  
+</div>
