@@ -1,15 +1,16 @@
-      <tr id=tr_task_<%=@task.id%>>
-        <td>
+      <tr id=tr_task_<%=@task.id%> class='task'>
+        <td class='check_box'>
           <%= form_for @task, :remote => true do |f| %>
           <%= f.check_box :is_done %>
           <% end %>
         </td>
-        <td> 
-          <div id=task_show_<%=@task.id%>>
+        <td class="nbsp"></td>
+        <td class='task_name'> 
+          <div id=task_show_<%=@task.id%> class=task_name_show>
             <%= render 'tasks/task_for_index'%>
           </div>
         </td>
-        <td>
+        <td class="action">
           <%=  link_to 'Edit', edit_task_path(@task), :remote => true%> |
           <%= link_to 'Destroy', @task, confirm: 'Are you sure?', method: :delete, :remote => true %>
         </td>

@@ -1,5 +1,7 @@
-<%= form_for(@task, :remote=>true, :id =>task_form)  do |f| %>
+<%= form_for(@task, :remote=>true)  do |f| %>
     <%= f.hidden_field :project_id%>
-    <%= f.text_field :name, :size=>"80%" %>
-    <%= f.submit f.object.new_record? ? 'Add Task' : 'Update'%>
+    <%= f.text_field :name, :class=> "text_field", 
+                     :value => f.object.new_record? ? 'Start typing here to create a task...' : @task.name,
+                     :onfocus=>"if (this.value == 'Start typing here to create a task...') {this.value=''; this.style.color='#000';}"%>
+    <%= f.submit f.object.new_record? ? 'Add Task' : 'Update', :class=>"button"%>
 <% end %>  

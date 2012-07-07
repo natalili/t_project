@@ -1,5 +1,6 @@
 <h1>Listing projects</h1>
 <h2>From <%= current_user.name%></h2>
+<br/>
 <div id=index_project>
 <% @projects.each do |project| %>
 <% @project = project%>
@@ -7,4 +8,4 @@
 <br/>
 <% end %>
 </div>
-<%= link_to 'Add Project', new_project_path %>
+<%= link_to (image_tag("button1.jpeg", :alt =>  "Add Project", :id =>"buttom_add_project")).html_safe, new_project_path, :remote => true %>

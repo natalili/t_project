@@ -13,24 +13,122 @@
 */
 body {
   background: #AD540A url(img01.jpeg) repeat-x;
+  background-attachment: fixed;
 }
 
 .container {
-  width: 710px;
-  text-align: center;
+    margin: 5%;
+    text-align: center;
+    width: 1000px;
+}
+
+h1, h2 {
+  text-transform: uppercase;
+  line-height: 10px;
+  font-family: sans-serif;
+}
+
+h2{
+  font-weight: 400;
 }
 
 table.project_tasks {
-  width: 100%;
-  margin: 50px;
+  background-color: #FFFFFF;
+  width: 800px;
+  margin: 15px 0 0 100px;
   text-align: left;
-  border-color: #888888;
+  border: 1px solid #aaaaaa;
   border-radius: 0 0 15px 15px;
-  border-style: solid;
-  border-width: 1px;
+  border-spacing: 0;
+}
 
+table.project_tasks td{
+  height: 50px;
 }
 
 tr.project_object{
-  background: #4B73B0
+  background: #4269A2;
+  cursor: pointer;
+  outline: 2px groove #4B73B0;
+}
+
+tr.new_task_form{
+  background: #D4D4D4;
+}
+
+tr.task td{
+  border-top: 1px solid #DDDDDD;
+  border-right: 1px solid;
+  color: #999999;
+  cursor: pointer;
+}
+
+tr.task td.check_box{
+  border-right-color: #FFDDDD;
+  width: 35px;
+  text-align: center;             
+}
+
+tr.task td.nbsp{
+  border-right-color: #FFDDDD;
+#  padding: 0;
+  width: 2px;
+
+}
+
+tr.task td.task_name{
+  border-right-color: #ddDDDD;
+  width: 640px;
+}
+
+.task_name_show{
+   margin: 10px;
+}
+
+.action{
+  border-right: none;
+  width: 110px;
+  padding-right: 20px;
+  text-align: right;
+  color: #5185BF;
+
+}
+
+.project_name{
+  color: #FFFFFF;
+  font-size: 150%;
+  width: 640px;
+}
+
+form.new_task {
+  float: right;
+  margin: 7px 10px 7px 0;
+}
+
+form.new_task .button {
+    background-color: #679E7F;
+    border: 1px solid #346B4C;
+    border-radius: 0 6px 6px 0;
+    color: #FFFFFF;
+    height: 30px;
+    width: 100px;
+}
+
+form.new_task .text_field{
+    color: #cccccc;
+    float: left;
+    height: 25px;
+    width: 635px;
+}
+
+form.edit_task .text_field {
+  width: 500px;
+}
+
+#buttom_add_project {
+  margin: 30px;
+}
+
+.img_project, .img_new_task{
+  float: right;
 }

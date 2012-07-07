@@ -1,21 +1,26 @@
 <table class="project_tasks" id=table_project_<%=@project.id%>>
 
   <tr class="project_object">
-    <td></td>
-    <td>
+    <td class='check_box'>
+      <%=image_tag("img02.jpeg", :class => "img_project")%>
+    </td>
+    <td class="nbsp">&nbsp</td>
+    <td class=project_name>
       <div id=project_show_<%=@project.id%> >
       <%=@project.name%>
       </div>
     </td>
-    <td>
-      <%= link_to 'Edit', edit_project_path(@project), :remote => true %> | 
-      <%= link_to 'Destroy', @project, confirm: 'Are you sure?', method: :delete, :remote => true %>
+    <td class="action">
+      <%= link_to (image_tag("button2.jpeg", :alt =>  "Edit", :class =>"buttom_edit_project")).html_safe, edit_project_path(@project), :remote => true %> | 
+      <%= link_to (image_tag("button3.jpeg", :alt =>  "Destroy", :class =>"buttom_destroy_project")).html_safe, @project, confirm: 'Are you sure?', method: :delete, :remote => true %>
     </td>
   </tr>
 
 <div id=index_project_tasks>
-  <tr>
-    <td></td>
+  <tr class='new_task_form'>
+    <td class='check_box'>
+      <%=image_tag("img03.jpeg", :class => "img_new_task")%></td>
+    <td class="nbsp"></td>
     <td colspan='2'>
       <div id=new_task_form_project_<%=@project.id%>>
       <%@task = @project.tasks.build(:project_id => @project.id)%>
@@ -26,9 +31,7 @@
 
    <% @project.tasks.each do |task| unless task.id==nil%>
    <% @task = task%>
-   <div id=task_tr_<%=@task.id%>>
      <%= render 'tasks/task_tr'%>
-   </div>
    <% end %> 
 </div>
    <% end %> 
