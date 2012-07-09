@@ -11,7 +11,7 @@
           </div>
         </td>
         <td class="action">
-          <%=  link_to 'Edit', edit_task_path(@task), :remote => true%> |
-          <%= link_to 'Destroy', @task, confirm: 'Are you sure?', method: :delete, :remote => true %>
+          <%=  link_to (image_tag("button4_.png", :alt =>  "Edit", :class =>"buttom_edit_task")).html_safe, edit_task_path(@task), :remote => true%> |
+          <%= link_to (image_tag("button5.png", :alt =>  "Destroy", :class =>"buttom_destroy_task")).html_safe, @task, confirm: 'Are you sure?', method: :delete, :remote => true %>
         </td>
       </tr>

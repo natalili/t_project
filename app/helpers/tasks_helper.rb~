@@ -1,4 +1,0 @@
-module TasksHelper
-  
-  ::MESSAGE_FOR_TASK_NAME = 'Start typing here to create a task...'
-end

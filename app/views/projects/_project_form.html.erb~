@@ -1,4 +1,0 @@
-<%= form_for(@project, :remote=>true) do |f| %>
-    <%= f.text_field :name, :size=>"85px" %>
-    <%= f.submit f.object.new_record? ? 'Create' : 'Update'%>
-<% end %>  

@@ -33,6 +33,13 @@ table.project_tasks td{
   height: 50px;
 }
 
+table.project_tasks td.action{
+  width: 110px;
+  padding-right: 20px;
+  text-align: right;
+  color: #5185BF;
+}
+
 tr.project_object{
   background: #4269A2;
   cursor: pointer;
@@ -74,11 +81,6 @@ tr.task td.task_name{
 
 tr.task td.action{
   border-right: none;
-  width: 110px;
-  padding-right: 20px;
-  text-align: right;
-  color: #5185BF;
-
 }
 
 .project_name{

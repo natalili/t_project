@@ -1,2 +1,0 @@
-$("#project_form").remove()
-$("#index_project").append("<%= escape_javascript(render('project_table')) %>").toggle('slide')
