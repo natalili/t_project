@@ -115,8 +115,8 @@ form.edit_task .text_field {
 }
 
 #buttom_add_project {
-  margin: 30px;
-}
+    position: relative;
+    top: 30px;}
 
 .img_project, .img_new_task{
   float: right;
