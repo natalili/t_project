@@ -85,7 +85,7 @@ tr.task td.task_name{
    margin: 10px;
 }
 
-.action{
+tr.task td.action{
   border-right: none;
   width: 110px;
   padding-right: 20px;
@@ -131,4 +131,5 @@ form.edit_task .text_field {
 
 .img_project, .img_new_task{
   float: right;
+  margin: 5px;
 }
